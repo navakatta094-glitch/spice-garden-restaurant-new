@@ -1,0 +1,2265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Spice Garden Restaurant</title>
+
+    <meta
+        name="description"
+        content="Spice Garden Restaurant - Authentic Indian food, biryani, starters, curries and more."
+    >
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="topbar">
+
+    <a href="#home" class="brand">
+
+        <span class="brand-icon">🍽️</span>
+
+        <span>
+            <strong>Spice Garden</strong>
+            <small>RESTAURANT</small>
+        </span>
+
+    </a>
+
+
+    <button
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="Open navigation menu"
+    >
+        ☰
+    </button>
+
+
+    <nav id="navMenu">
+
+        <a href="#home">Home</a>
+
+        <a href="#menu">Menu</a>
+
+        <a href="#booking">Book Table</a>
+
+        <a href="#reviews">Reviews</a>
+
+        <a href="#contact">Contact</a>
+
+        <button
+            class="nav-cart"
+            onclick="openCart()"
+        >
+            🛒 Cart
+            <span id="cartCount">0</span>
+        </button>
+
+    </nav>
+
+</header>
+
+
+<!-- =====================================================
+     HOME / HERO
+===================================================== -->
+
+<main>
+
+<section class="hero" id="home">
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+
+        <p class="eyebrow">
+            WELCOME TO SPICE GARDEN
+        </p>
+
+        <h1>
+            Taste the
+            <br>
+            <span>Authentic Flavours</span>
+        </h1>
+
+        <p class="hero-text">
+            Enjoy delicious Indian cuisine prepared
+            with fresh ingredients, traditional spices
+            and lots of love.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a
+                href="#menu"
+                class="btn btn-primary"
+            >
+                Explore Menu
+            </a>
+
+            <a
+                href="#booking"
+                class="btn btn-outline"
+            >
+                Book a Table
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     QUICK ACTIONS
+===================================================== -->
+
+<section class="quick-actions">
+
+    <button onclick="goToSection('menu')">
+
+        <span>🍛</span>
+
+        <strong>
+            Fresh Food
+        </strong>
+
+        <small>
+            Made with quality ingredients
+        </small>
+
+    </button>
+
+
+    <button onclick="goToSection('booking')">
+
+        <span>📅</span>
+
+        <strong>
+            Book a Table
+        </strong>
+
+        <small>
+            Reserve your table easily
+        </small>
+
+    </button>
+
+
+    <button onclick="orderOnWhatsApp()">
+
+        <span>📲</span>
+
+        <strong>
+            Order Online
+        </strong>
+
+        <small>
+            Order through WhatsApp
+        </small>
+
+    </button>
+
+              </section>
+              <!-- =====================================================
+     FEATURED FOOD
+===================================================== -->
+
+<section class="featured-section">
+
+    <div class="section-heading">
+
+        <p class="eyebrow">
+            CHEF'S SPECIAL
+        </p>
+
+        <h2>
+            Popular Dishes
+        </h2>
+
+        <p>
+            Our most loved dishes, prepared fresh for you.
+        </p>
+
+    </div>
+
+
+    <div class="featured-grid">
+
+
+        <!-- Chicken Biryani -->
+
+        <div class="featured-card">
+
+            <img
+                src="https://images.unsplash.com/photo-1631515242808-497c3e7f98e7?auto=format&fit=crop&w=900&q=85"
+                alt="Chicken Biryani"
+            >
+
+            <div class="featured-content">
+
+                <span class="food-tag">
+                    BEST SELLER
+                </span>
+
+                <h3>
+                    Chicken Biryani
+                </h3>
+
+                <p>
+                    Fragrant basmati rice with tender chicken
+                    and aromatic Indian spices.
+                </p>
+
+                <div class="food-bottom">
+
+                    <strong>₹220</strong>
+
+                    <button
+                        onclick="addToCart('Chicken Biryani', 220)"
+                    >
+                        Add
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Paneer Tikka -->
+
+        <div class="featured-card">
+
+            <img
+                src="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&w=900&q=85"
+                alt="Paneer Tikka"
+            >
+
+            <div class="featured-content">
+
+                <span class="food-tag">
+                    VEGETARIAN
+                </span>
+
+                <h3>
+                    Paneer Tikka
+                </h3>
+
+                <p>
+                    Soft paneer marinated with spices
+                    and grilled to perfection.
+                </p>
+
+                <div class="food-bottom">
+
+                    <strong>₹180</strong>
+
+                    <button
+                        onclick="addToCart('Paneer Tikka', 180)"
+                    >
+                        Add
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Chicken 65 -->
+
+        <div class="featured-card">
+
+            <img
+                src="https://images.unsplash.com/photo-1562967916-eb82221dfb36?auto=format&fit=crop&w=900&q=85"
+                alt="Chicken 65"
+            >
+
+            <div class="featured-content">
+
+                <span class="food-tag">
+                    POPULAR
+                </span>
+
+                <h3>
+                    Chicken 65
+                </h3>
+
+                <p>
+                    Crispy chicken tossed with
+                    aromatic Indian spices.
+                </p>
+
+                <div class="food-bottom">
+
+                    <strong>₹190</strong>
+
+                    <button
+                        onclick="addToCart('Chicken 65', 190)"
+                    >
+                        Add
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Mutton Biryani -->
+
+        <div class="featured-card">
+
+            <img
+                src="https://images.unsplash.com/photo-1545247181-516773cae754?auto=format&fit=crop&w=900&q=85"
+                alt="Mutton Biryani"
+            >
+
+            <div class="featured-content">
+
+                <span class="food-tag">
+                    CHEF SPECIAL
+                </span>
+
+                <h3>
+                    Mutton Biryani
+                </h3>
+
+                <p>
+                    Rich and flavorful biryani prepared
+                    with tender mutton and spices.
+                </p>
+
+                <div class="food-bottom">
+
+                    <strong>₹280</strong>
+
+                    <button
+                        onclick="addToCart('Mutton Biryani', 280)"
+                    >
+                        Add
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     MENU SECTION
+===================================================== -->
+
+<section class="menu-section" id="menu">
+
+    <div class="section-heading">
+
+        <p class="eyebrow">
+            OUR MENU
+        </p>
+
+        <h2>
+            Delicious Choices
+        </h2>
+
+        <p>
+            Choose from our selection of freshly prepared dishes.
+        </p>
+
+    </div>
+
+
+    <!-- MENU CATEGORY BUTTONS -->
+
+    <div class="category-buttons">
+
+        <button
+            class="category active"
+            onclick="showCategory('starters', this)"
+        >
+            Starters
+        </button>
+
+
+        <button
+            class="category"
+            onclick="showCategory('mainveg', this)"
+        >
+            Main Course Veg
+        </button>
+
+
+        <button
+            class="category"
+            onclick="showCategory('mainnonveg', this)"
+        >
+            Main Course Non-Veg
+        </button>
+
+
+        <button
+            class="category"
+            onclick="showCategory('curries', this)"
+        >
+            Curries
+        </button>
+
+
+        <button
+            class="category"
+            onclick="showCategory('mocktails', this)"
+        >
+            Mocktails
+        </button>
+
+
+        <button
+            class="category"
+            onclick="showCategory('veg', this)"
+        >
+            Veg Tiffins
+        </button>
+
+
+        <button
+            class="category"
+            onclick="showCategory('nonveg', this)"
+        >
+            Non-Veg Tiffins
+        </button>
+
+    </div>
+
+
+    <!-- =================================================
+         STARTERS
+    ================================================= -->
+
+    <div
+        class="food-category active-category"
+        id="starters"
+    >
+
+
+        <!-- Chicken 65 -->
+
+        <div class="food-card">
+
+            <img
+                src="https://images.unsplash.com/photo-1562967916-eb82221dfb36?auto=format&fit=crop&w=900&q=85"
+                alt="Chicken 65"
+            >
+
+            <div class="food-info">
+
+                <h3>Chicken 65</h3>
+
+                <p>
+                    Crispy and spicy chicken starter.
+                </p>
+
+                <div class="food-bottom">
+
+                    <strong>₹190</strong>
+
+                    <button
+                        onclick="addToCart('Chicken 65', 190)"
+                    >
+                        Add
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Paneer Tikka -->
+
+        <div class="food-card">
+
+            <img
+                src="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&w=900&q=85"
+                alt="Paneer Tikka"
+            >
+
+            <div class="food-info">
+
+                <h3>Paneer Tikka</h3>
+
+                <p>
+                    Grilled paneer with Indian spices.
+                </p>
+
+                <div class="food-bottom">
+
+                    <strong>₹180</strong>
+
+                    <button
+                        onclick="addToCart('Paneer Tikka', 180)"
+                    >
+                        Add
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Tandoori Chicken -->
+
+        <div class="food-card">
+
+            <img
+                src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&w=900&q=85"
+                alt="Tandoori Chicken"
+            >
+
+            <div class="food-info">
+
+                <h3>Tandoori Chicken</h3>
+
+                <p>
+                    Juicy chicken marinated with traditional spices.
+                </p>
+
+                <div class="food-bottom">
+
+                    <strong>₹240</strong>
+
+                    <button
+                        onclick="addToCart('Tandoori Chicken', 240)"
+                    >
+                        Add
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Veg Manchurian -->
+
+        <div class="food-card">
+
+            <img
+                src="https://images.unsplash.com/photo-1625398407796-82650a8c135f?auto=format&fit=crop&w=900&q=85"
+                alt="Veg Manchurian"
+            >
+
+            <div class="food-info">
+
+                <h3>Veg Manchurian</h3>
+
+                <p>
+                    Crispy vegetable balls in a flavorful sauce.
+                </p>
+
+                <div class="food-bottom">
+
+                    <strong>₹150</strong>
+
+                    <button
+                        onclick="addToCart('Veg Manchurian', 150)"
+                    >
+                        Add
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Chicken Manchurian -->
+
+        <div class="food-card">
+
+            <img
+                src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=900&q=85"
+                alt="Chicken Manchurian"
+            >
+
+            <div class="food-info">
+
+                <h3>Chicken Manchurian</h3>
+
+                <p>
+                    Chicken tossed in a spicy Indo-Chinese sauce.
+                </p>
+
+                <div class="food-bottom">
+
+                    <strong>₹200</strong>
+
+                    <button
+                        onclick="addToCart('Chicken Manchurian', 200)"
+                    >
+                        Add
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Gobi 65 -->
+
+        <div class="food-card">
+
+            <img
+                src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=900&q=85"
+                alt="Gobi 65"
+            >
+
+            <div class="food-info">
+
+                <h3>Gobi 65</h3>
+
+                <p>
+                    Crispy cauliflower coated with spicy masala.
+                </p>
+
+                <div class="food-bottom">
+
+                    <strong>₹140</strong>
+
+                    <button
+                        onclick="addToCart('Gobi 65', 140)"
+                    >
+                        Add
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Chilli Chicken -->
+
+        <div class="food-card">
+
+            <img
+                src="https://images.unsplash.com/photo-1525755662778-989d0524087e?auto=format&fit=crop&w=900&q=85"
+                alt="Chilli Chicken"
+            >
+
+            <div class="food-info">
+
+                <h3>Chilli Chicken</h3>
+
+                <p>
+                    Tender chicken with fresh vegetables and chilli.
+                </p>
+
+                <div class="food-bottom">
+
+                    <strong>₹210</strong>
+
+                    <button
+                        onclick="addToCart('Chilli Chicken', 210)"
+                    >
+                        Add
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Crispy Corn -->
+
+        <div class="food-card">
+
+            <img
+                src="https://images.unsplash.com/photo-1551754655-cd27e38d2076?auto=format&fit=crop&w=900&q=85"
+                alt="Crispy Corn"
+            >
+
+            <div class="food-info">
+
+                <h3>Crispy Corn</h3>
+
+                <p>
+                    Crunchy corn tossed with herbs and spices.
+                </p>
+
+                <div class="food-bottom">
+
+                    <strong>₹130</strong>
+
+                    <button
+                        onclick="addToCart('Crispy Corn', 130)"
+                    >
+                        Add
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Chicken Lollipop -->
+
+        <div class="food-card">
+
+            <img
+                src="https://images.unsplash.com/photo-1527477396000-e27163b481c2?auto=format&fit=crop&w=900&q=85"
+                alt="Chicken Lollipop"
+            >
+
+            <div class="food-info">
+
+                <h3>Chicken Lollipop</h3>
+
+                <p>
+                    Crispy chicken lollipop with spicy seasoning.
+                </p>
+
+                <div class="food-bottom">
+
+                    <strong>₹220</strong>
+
+                    <button
+                        onclick="addToCart('Chicken Lollipop', 220)"
+                    >
+                        Add
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Veg Spring Rolls -->
+
+        <div class="food-card">
+
+            <img
+                src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=900&q=85"
+                alt="Veg Spring Rolls"
+            >
+
+            <div class="food-info">
+
+                <h3>Veg Spring Rolls</h3>
+
+                <p>
+                    Crispy rolls filled with seasoned vegetables.
+                </p>
+
+                <div class="food-bottom">
+
+                    <strong>₹130</strong>
+
+                    <button
+                        onclick="addToCart('Veg Spring Rolls', 130)"
+                    >
+                        Add
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+  </div>
+  <!-- =====================================================
+     MAIN COURSE — VEG
+===================================================== -->
+
+<div
+    class="food-category"
+    id="mainveg"
+>
+
+
+    <!-- Veg Biryani -->
+
+    <div class="food-card">
+
+        <img
+            src="https://images.unsplash.com/photo-1601050690117-94f5f6fa8bd7?auto=format&fit=crop&w=900&q=85"
+            alt="Veg Biryani"
+        >
+
+        <div class="food-info">
+
+            <h3>Veg Biryani</h3>
+
+            <p>
+                Fragrant basmati rice cooked with fresh vegetables and spices.
+            </p>
+
+            <div class="food-bottom">
+
+                <strong>₹180</strong>
+
+                <button
+                    onclick="addToCart('Veg Biryani', 180)"
+                >
+                    Add
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Paneer Butter Masala -->
+
+    <div class="food-card">
+
+        <img
+            src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=900&q=85"
+            alt="Paneer Butter Masala"
+        >
+
+        <div class="food-info">
+
+            <h3>Paneer Butter Masala</h3>
+
+            <p>
+                Soft paneer cooked in a rich and creamy tomato gravy.
+            </p>
+
+            <div class="food-bottom">
+
+                <strong>₹190</strong>
+
+                <button
+                    onclick="addToCart('Paneer Butter Masala', 190)"
+                >
+                    Add
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Kaju Paneer -->
+
+    <div class="food-card">
+
+        <img
+            src="https://images.unsplash.com/photo-1631452180539-96aca7d48617?auto=format&fit=crop&w=900&q=85"
+            alt="Kaju Paneer"
+        >
+
+        <div class="food-info">
+
+            <h3>Kaju Paneer</h3>
+
+            <p>
+                Paneer and cashews cooked in a delicious creamy gravy.
+            </p>
+
+            <div class="food-bottom">
+
+                <strong>₹210</strong>
+
+                <button
+                    onclick="addToCart('Kaju Paneer', 210)"
+                >
+                    Add
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Veg Fried Rice -->
+
+    <div class="food-card">
+
+        <img
+            src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=900&q=85"
+            alt="Veg Fried Rice"
+        >
+
+        <div class="food-info">
+
+            <h3>Veg Fried Rice</h3>
+
+            <p>
+                Basmati rice stir-fried with vegetables and sauces.
+            </p>
+
+            <div class="food-bottom">
+
+                <strong>₹150</strong>
+
+                <button
+                    onclick="addToCart('Veg Fried Rice', 150)"
+                >
+                    Add
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     MAIN COURSE — NON-VEG
+===================================================== -->
+
+<div
+    class="food-category"
+    id="mainnonveg"
+>
+
+
+    <!-- Chicken Biryani -->
+
+    <div class="food-card">
+
+        <img
+            src="https://images.unsplash.com/photo-1631515242808-497c3e7f98e7?auto=format&fit=crop&w=900&q=85"
+            alt="Chicken Biryani"
+        >
+
+        <div class="food-info">
+
+            <h3>Chicken Biryani</h3>
+
+            <p>
+                Aromatic basmati rice with tender chicken and traditional spices.
+            </p>
+
+            <div class="food-bottom">
+
+                <strong>₹220</strong>
+
+                <button
+                    onclick="addToCart('Chicken Biryani', 220)"
+                >
+                    Add
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Mutton Biryani -->
+
+    <div class="food-card">
+
+        <img
+            src="https://images.unsplash.com/photo-1545247181-516773cae754?auto=format&fit=crop&w=900&q=85"
+            alt="Mutton Biryani"
+        >
+
+        <div class="food-info">
+
+            <h3>Mutton Biryani</h3>
+
+            <p>
+                Flavorful basmati rice prepared with tender mutton and spices.
+            </p>
+
+            <div class="food-bottom">
+
+                <strong>₹280</strong>
+
+                <button
+                    onclick="addToCart('Mutton Biryani', 280)"
+                >
+                    Add
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Chicken Fried Rice -->
+
+    <div class="food-card">
+
+        <img
+            src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=900&q=85"
+            alt="Chicken Fried Rice"
+        >
+
+        <div class="food-info">
+
+            <h3>Chicken Fried Rice</h3>
+
+            <p>
+                Fried rice tossed with chicken, vegetables and aromatic sauces.
+            </p>
+
+            <div class="food-bottom">
+
+                <strong>₹180</strong>
+
+                <button
+                    onclick="addToCart('Chicken Fried Rice', 180)"
+                >
+                    Add
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Chicken Noodles -->
+
+    <div class="food-card">
+
+        <img
+            src="https://images.unsplash.com/photo-1552611052-33e04de081de?auto=format&fit=crop&w=900&q=85"
+            alt="Chicken Noodles"
+        >
+
+        <div class="food-info">
+
+            <h3>Chicken Noodles</h3>
+
+            <p>
+                Delicious noodles tossed with chicken and fresh vegetables.
+            </p>
+
+            <div class="food-bottom">
+
+                <strong>₹170</strong>
+
+                <button
+                    onclick="addToCart('Chicken Noodles', 170)"
+                >
+                    Add
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     CURRIES
+===================================================== -->
+
+<div
+    class="food-category"
+    id="curries"
+>
+
+
+    <!-- Chicken Curry -->
+
+    <div class="food-card">
+
+        <img
+            src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=900&q=85"
+            alt="Chicken Curry"
+        >
+
+        <div class="food-info">
+
+            <h3>Chicken Curry</h3>
+
+            <p>
+                Tender chicken cooked in a traditional spicy Indian gravy.
+            </p>
+
+            <div class="food-bottom">
+
+                <strong>₹200</strong>
+
+                <button
+                    onclick="addToCart('Chicken Curry', 200)"
+                >
+                    Add
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Mutton Curry -->
+
+    <div class="food-card">
+
+        <img
+            src="https://images.unsplash.com/photo-1545247181-516773cae754?auto=format&fit=crop&w=900&q=85"
+            alt="Mutton Curry"
+        >
+
+        <div class="food-info">
+
+            <h3>Mutton Curry</h3>
+
+            <p>
+                Tender mutton slow-cooked with aromatic Indian spices.
+            </p>
+
+            <div class="food-bottom">
+
+                <strong>₹260</strong>
+
+                <button
+                    onclick="addToCart('Mutton Curry', 260)"
+                >
+                    Add
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Paneer Curry -->
+
+    <div class="food-card">
+
+        <img
+            src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=900&q=85"
+            alt="Paneer Curry"
+        >
+
+        <div class="food-info">
+
+            <h3>Paneer Curry</h3>
+
+            <p>
+                Soft paneer pieces cooked in a flavorful Indian gravy.
+            </p>
+
+            <div class="food-bottom">
+
+                <strong>₹180</strong>
+
+                <button
+                    onclick="addToCart('Paneer Curry', 180)"
+                >
+                    Add
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Egg Curry -->
+
+    <div class="food-card">
+
+        <img
+            src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=900&q=85"
+            alt="Egg Curry"
+        >
+
+        <div class="food-info">
+
+            <h3>Egg Curry</h3>
+
+            <p>
+                Boiled eggs cooked in a rich and spicy onion-tomato gravy.
+            </p>
+
+            <div class="food-bottom">
+
+                <strong>₹150</strong>
+
+                <button
+                    onclick="addToCart('Egg Curry', 150)"
+                >
+                    Add
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>
+<!-- =====================================================
+     MOCKTAILS
+===================================================== -->
+
+<div
+    class="food-category"
+    id="mocktails"
+>
+
+
+    <!-- Virgin Mojito -->
+
+    <div class="food-card">
+
+        <img
+            src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=900&q=85"
+            alt="Virgin Mojito"
+        >
+
+        <div class="food-info">
+
+            <h3>Virgin Mojito</h3>
+
+            <p>
+                Refreshing mint, lime and sparkling drink.
+            </p>
+
+            <div class="food-bottom">
+
+                <strong>₹120</strong>
+
+                <button
+                    onclick="addToCart('Virgin Mojito', 120)"
+                >
+                    Add
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Blue Lagoon -->
+
+    <div class="food-card">
+
+        <img
+            src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=900&q=85"
+            alt="Blue Lagoon Mocktail"
+        >
+
+        <div class="food-info">
+
+            <h3>Blue Lagoon</h3>
+
+            <p>
+                Cool citrus mocktail with a refreshing taste.
+            </p>
+
+            <div class="food-bottom">
+
+                <strong>₹130</strong>
+
+                <button
+                    onclick="addToCart('Blue Lagoon', 130)"
+                >
+                    Add
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Fresh Lime Soda -->
+
+    <div class="food-card">
+
+        <img
+            src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=900&q=85"
+            alt="Fresh Lime Soda"
+        >
+
+        <div class="food-info">
+
+            <h3>Fresh Lime Soda</h3>
+
+            <p>
+                Fresh lime served chilled with sparkling soda.
+            </p>
+
+            <div class="food-bottom">
+
+                <strong>₹90</strong>
+
+                <button
+                    onclick="addToCart('Fresh Lime Soda', 90)"
+                >
+                    Add
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Mango Cooler -->
+
+    <div class="food-card">
+
+        <img
+            src="https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?auto=format&fit=crop&w=900&q=85"
+            alt="Mango Cooler"
+        >
+
+        <div class="food-info">
+
+            <h3>Mango Cooler</h3>
+
+            <p>
+                Sweet and refreshing mango-based cooler.
+            </p>
+
+            <div class="food-bottom">
+
+                <strong>₹120</strong>
+
+                <button
+                    onclick="addToCart('Mango Cooler', 120)"
+                >
+                    Add
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     VEG TIFFINS
+===================================================== -->
+
+<div
+    class="food-category"
+    id="veg"
+>
+
+
+    <!-- Masala Dosa -->
+
+    <div class="food-card">
+
+        <img
+            src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=900&q=85"
+            alt="Masala Dosa"
+        >
+
+        <div class="food-info">
+
+            <h3>Masala Dosa</h3>
+
+            <p>
+                Crispy dosa served with potato masala and chutney.
+            </p>
+
+            <div class="food-bottom">
+
+                <strong>₹90</strong>
+
+                <button
+                    onclick="addToCart('Masala Dosa', 90)"
+                >
+                    Add
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Idly -->
+
+    <div class="food-card">
+
+        <img
+            src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=900&q=85"
+            alt="Idly"
+        >
+
+        <div class="food-info">
+
+            <h3>Idly</h3>
+
+            <p>
+                Soft steamed idlis served with sambar and chutney.
+            </p>
+
+            <div class="food-bottom">
+
+                <strong>₹70</strong>
+
+                <button
+                    onclick="addToCart('Idly', 70)"
+                >
+                    Add
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Plain Dosa -->
+
+    <div class="food-card">
+
+        <img
+            src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=900&q=85"
+            alt="Plain Dosa"
+        >
+
+        <div class="food-info">
+
+            <h3>Plain Dosa</h3>
+
+            <p>
+                Golden crispy dosa served with chutney and sambar.
+            </p>
+
+            <div class="food-bottom">
+
+                <strong>₹75</strong>
+
+                <button
+                    onclick="addToCart('Plain Dosa', 75)"
+                >
+                    Add
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Poori -->
+
+    <div class="food-card">
+
+        <img
+            src="https://images.unsplash.com/photo-1601050690117-94f5f6fa8bd7?auto=format&fit=crop&w=900&q=85"
+            alt="Poori"
+        >
+
+        <div class="food-info">
+
+            <h3>Poori</h3>
+
+            <p>
+                Fluffy fried pooris served with tasty potato curry.
+            </p>
+
+            <div class="food-bottom">
+
+                <strong>₹80</strong>
+
+                <button
+                    onclick="addToCart('Poori', 80)"
+                >
+                    Add
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     NON-VEG TIFFINS
+===================================================== -->
+
+<div
+    class="food-category"
+    id="nonveg"
+>
+
+
+    <!-- Egg Dosa -->
+
+    <div class="food-card">
+
+        <img
+            src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=900&q=85"
+            alt="Egg Dosa"
+        >
+
+        <div class="food-info">
+
+            <h3>Egg Dosa</h3>
+
+            <p>
+                Crispy dosa topped with seasoned egg.
+            </p>
+
+            <div class="food-bottom">
+
+                <strong>₹110</strong>
+
+                <button
+                    onclick="addToCart('Egg Dosa', 110)"
+                >
+                    Add
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Chicken Dosa -->
+
+    <div class="food-card">
+
+        <img
+            src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=900&q=85"
+            alt="Chicken Dosa"
+        >
+
+        <div class="food-info">
+
+            <h3>Chicken Dosa</h3>
+
+            <p>
+                South Indian dosa served with spicy chicken filling.
+            </p>
+
+            <div class="food-bottom">
+
+                <strong>₹160</strong>
+
+                <button
+                    onclick="addToCart('Chicken Dosa', 160)"
+                >
+                    Add
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Egg Parota -->
+
+    <div class="food-card">
+
+        <img
+            src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=900&q=85"
+            alt="Egg Parota"
+        >
+
+        <div class="food-info">
+
+            <h3>Egg Parota</h3>
+
+            <p>
+                Flaky parota served with delicious egg preparation.
+            </p>
+
+            <div class="food-bottom">
+
+                <strong>₹120</strong>
+
+                <button
+                    onclick="addToCart('Egg Parota', 120)"
+                >
+                    Add
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Chicken Parota -->
+
+    <div class="food-card">
+
+        <img
+            src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=900&q=85"
+            alt="Chicken Parota"
+        >
+
+        <div class="food-info">
+
+            <h3>Chicken Parota</h3>
+
+            <p>
+                Soft flaky parota served with spicy chicken curry.
+            </p>
+
+            <div class="food-bottom">
+
+                <strong>₹170</strong>
+
+                <button
+                    onclick="addToCart('Chicken Parota', 170)"
+                >
+                    Add
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+          </div>
+          <!-- =====================================================
+     BOOK A TABLE
+===================================================== -->
+
+</section>
+
+<section class="booking-section" id="booking">
+
+    <div class="section-title">
+
+        <p class="eyebrow">RESERVATION</p>
+
+        <h2>Book a Table</h2>
+
+        <p>
+            Reserve your table and enjoy a wonderful dining experience.
+        </p>
+
+    </div>
+
+    <form class="booking-form" id="bookingForm">
+
+        <div class="form-row">
+
+            <div class="form-group">
+
+                <label for="bookingDate">
+                    Date
+                </label>
+
+                <input
+                    type="date"
+                    id="bookingDate"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="bookingTime">
+                    Time
+                </label>
+
+                <select id="bookingTime" required>
+
+                    <option value="">
+                        Select time
+                    </option>
+
+                    <option value="11:00 AM">
+                        11:00 AM
+                    </option>
+
+                    <option value="12:00 PM">
+                        12:00 PM
+                    </option>
+
+                    <option value="1:00 PM">
+                        1:00 PM
+                    </option>
+
+                    <option value="2:00 PM">
+                        2:00 PM
+                    </option>
+
+                    <option value="6:00 PM">
+                        6:00 PM
+                    </option>
+
+                    <option value="7:00 PM">
+                        7:00 PM
+                    </option>
+
+                    <option value="8:00 PM">
+                        8:00 PM
+                    </option>
+
+                    <option value="9:00 PM">
+                        9:00 PM
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <div class="form-row">
+
+            <div class="form-group">
+
+                <label for="bookingMembers">
+                    Number of Members
+                </label>
+
+                <select id="bookingMembers" required>
+
+                    <option value="">
+                        Select members
+                    </option>
+
+                    <option value="1">
+                        1 Person
+                    </option>
+
+                    <option value="2">
+                        2 People
+                    </option>
+
+                    <option value="3">
+                        3 People
+                    </option>
+
+                    <option value="4">
+                        4 People
+                    </option>
+
+                    <option value="5">
+                        5 People
+                    </option>
+
+                    <option value="6">
+                        6 People
+                    </option>
+
+                    <option value="7">
+                        7 People
+                    </option>
+
+                    <option value="8">
+                        8 People
+                    </option>
+
+                    <option value="9">
+                        9 People
+                    </option>
+
+                    <option value="10">
+                        10 People
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="customerName">
+                    Your Name
+                </label>
+
+                <input
+                    type="text"
+                    id="customerName"
+                    placeholder="Enter your name"
+                    required
+                >
+
+            </div>
+
+        </div>
+
+
+        <div class="form-row">
+
+            <div class="form-group">
+
+                <label for="customerPhone">
+                    Phone Number
+                </label>
+
+                <input
+                    type="tel"
+                    id="customerPhone"
+                    placeholder="Enter phone number"
+                    inputmode="numeric"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="specialRequest">
+                    Special Request
+                </label>
+
+                <input
+                    type="text"
+                    id="specialRequest"
+                    placeholder="Birthday, window seat, etc."
+                >
+
+            </div>
+
+        </div>
+
+
+        <button
+            type="submit"
+            class="gold-btn"
+        >
+            Confirm Booking Request
+        </button>
+
+    </form>
+
+</section>
+
+
+
+<!-- =====================================================
+     REVIEWS
+===================================================== -->
+
+<section class="reviews-section" id="reviews">
+
+    <div class="section-heading">
+
+        <p class="eyebrow">CUSTOMER REVIEWS</p>
+
+        <h2>What Our Guests Say</h2>
+
+        <p>
+            A few words from our happy customers.
+        </p>
+
+    </div>
+
+
+    <div class="reviews-grid">
+
+
+        <div class="review-card">
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+            <p>
+                Amazing food and excellent service.
+                The biryani was delicious and full of flavour.
+            </p>
+
+            <h4>
+                — Rahul
+            </h4>
+
+        </div>
+
+
+        <div class="review-card">
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+            <p>
+                Very nice atmosphere and tasty food.
+                A great place to enjoy dinner with family.
+            </p>
+
+            <h4>
+                — Priya
+            </h4>
+
+        </div>
+
+
+        <div class="review-card">
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+            <p>
+                Fresh food, friendly service and reasonable prices.
+                Definitely worth visiting again.
+            </p>
+
+            <h4>
+                — Arjun
+            </h4>
+
+        </div>
+
+    </div>
+
+
+    <div class="review-button-area">
+
+        <button
+            class="gold-btn"
+            onclick="writeReview()"
+        >
+            Write a Review
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CONTACT
+===================================================== -->
+
+<section class="contact-section" id="contact">
+
+    <div class="section-heading">
+
+        <p class="eyebrow">GET IN TOUCH</p>
+
+        <h2>Contact Us</h2>
+
+        <p>
+            We would love to hear from you.
+        </p>
+
+    </div>
+
+
+    <div class="contact-grid">
+
+
+        <!-- Address -->
+
+        <div class="contact-card">
+
+            <div class="contact-icon">
+                📍
+            </div>
+
+            <h3>Visit Us</h3>
+
+            <p>
+                Main Road,<br>
+                Vijayawada, Andhra Pradesh
+            </p>
+
+        </div>
+
+
+        <!-- Phone -->
+
+        <div class="contact-card">
+
+            <div class="contact-icon">
+                📞
+            </div>
+
+            <h3>Call Us</h3>
+
+            <p>
+
+                <a href="tel:+919100000000">
+                    +91 91000 00000
+                </a>
+
+            </p>
+
+        </div>
+
+
+        <!-- WhatsApp -->
+
+        <div class="contact-card">
+
+            <div class="contact-icon">
+                💬
+            </div>
+
+            <h3>WhatsApp</h3>
+
+            <p>
+
+                <a
+                    href="https://wa.me/919100000000"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    Chat With Us
+                </a>
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CART
+===================================================== -->
+
+<div
+    class="cart-overlay"
+    id="cartOverlay"
+    onclick="closeCart()"
+></div>
+
+
+<aside
+    class="cart-panel"
+    id="cartPanel"
+    aria-label="Shopping cart"
+>
+
+    <div class="cart-header">
+
+        <h2>
+            Your Cart
+        </h2>
+
+        <button
+            class="cart-close"
+            onclick="closeCart()"
+            aria-label="Close cart"
+        >
+            ×
+        </button>
+
+    </div>
+
+
+    <div
+        class="cart-items"
+        id="cartItems"
+    >
+
+        <div class="empty-cart">
+            Your cart is empty.
+        </div>
+
+    </div>
+
+
+    <div class="cart-footer">
+
+        <div class="cart-total-row">
+
+            <span>
+                Total
+            </span>
+
+            <strong id="cartTotal">
+                ₹0
+            </strong>
+
+        </div>
+
+
+        <button
+            class="whatsapp-order-btn"
+            onclick="orderOnWhatsApp()"
+        >
+            📲 Order on WhatsApp
+        </button>
+
+
+        <button
+            class="clear-cart-btn"
+            onclick="clearCart()"
+        >
+            Clear Cart
+        </button>
+
+    </div>
+
+</aside>
+
+
+
+<!-- =====================================================
+     FLOATING WHATSAPP BUTTON
+===================================================== -->
+
+<a
+    class="floating-whatsapp"
+    href="https://wa.me/919100000000"
+    target="_blank"
+    rel="noopener"
+    aria-label="Chat on WhatsApp"
+>
+    💬
+</a>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+    <div class="footer-content">
+
+
+        <div class="footer-brand">
+
+            <h3>
+                Spice Garden
+            </h3>
+
+            <p>
+                Authentic Indian flavours prepared with
+                fresh ingredients, traditional spices and care.
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <a href="#home">
+                Home
+            </a>
+
+            <a href="#menu">
+                Menu
+            </a>
+
+            <a href="#booking">
+                Book Table
+            </a>
+
+            <a href="#reviews">
+                Reviews
+            </a>
+
+            <a href="#contact">
+                Contact
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 Spice Garden Restaurant.
+            All rights reserved.
+        </p>
+
+    </div>
+
+</footer>
+
+
+</main>
+
+
+<script src="script.js"></script>
+
+</body>
+
+  </html>
