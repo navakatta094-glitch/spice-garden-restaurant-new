@@ -2168,3 +2168,66 @@ body.cart-open {
     }
 
   }
+/* =========================
+   PART 9 — CART TOAST
+========================= */
+
+.cart-toast {
+    position: fixed;
+    top: 85px;
+    left: 50%;
+    transform: translate(-50%, -20px);
+
+    width: min(420px, 90vw);
+    padding: 14px 18px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    background: rgba(21, 18, 15, 0.97);
+    color: #fff;
+
+    border: 1px solid rgba(212, 175, 55, 0.55);
+    border-radius: 14px;
+
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
+
+    font-size: 14px;
+    font-weight: 500;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    z-index: 3000;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease,
+        visibility 0.3s ease;
+}
+
+.cart-toast.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0);
+}
+
+.cart-toast-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+#cartToastMessage {
+    color: #fff;
+}
+
+@media (max-width: 520px) {
+    .cart-toast {
+        top: 75px;
+        width: calc(100vw - 30px);
+        padding: 13px 15px;
+        font-size: 13px;
+    }
+   }
