@@ -216,10 +216,8 @@ function addToCart(name, price) {
 /* ================= CART MESSAGE ================= */
 
 function showCartMessage(message) {
-
-    alert("🛒 " + message);
+    // Cart item added silently — no popup
 }
-
 
 /* ================= UPDATE CART ================= */
 
