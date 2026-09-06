@@ -214,9 +214,26 @@ function addToCart(name, price) {
 
 
 /* ================= CART MESSAGE ================= */
-
 function showCartMessage(message) {
-    // Cart item added silently — no popup
+    const cartToast = document.getElementById("cartToast");
+    const cartToastMessage = document.getElementById("cartToastMessage");
+
+    if (!cartToast || !cartToastMessage) return;
+
+    cartToastMessage.textContent = message;
+
+    // Restart the animation if another item is added
+    cartToast.classList.remove("show");
+
+    void cartToast.offsetWidth;
+
+    cartToast.classList.add("show");
+
+    clearTimeout(window.cartToastTimer);
+
+    window.cartToastTimer = setTimeout(function () {
+        cartToast.classList.remove("show");
+    }, 3000);
 }
 
 /* ================= UPDATE CART ================= */
