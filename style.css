@@ -1427,63 +1427,73 @@ section {
 
 }
 /* =====================================================
-   SHOPPING CART
+   SHOPPING CART — UPGRADED DESIGN
    STYLE.CSS — PART 7
 ===================================================== */
+
+body.cart-open {
+    overflow: hidden;
+}
 
 
 /* ---------- CART OVERLAY ---------- */
 
 .cart-overlay {
     position: fixed;
-
     inset: 0;
-
     z-index: 2000;
 
-    background: rgba(0, 0, 0, 0.65);
+    display: flex;
+    justify-content: flex-end;
+    align-items: stretch;
+
+    background: rgba(0, 0, 0, 0.72);
+
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
 
     opacity: 0;
-
     visibility: hidden;
+    pointer-events: none;
 
-    transition: 0.3s ease;
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease;
 }
 
 
 .cart-overlay.show {
     opacity: 1;
-
     visibility: visible;
+    pointer-events: auto;
 }
-
 
 
 /* ---------- CART PANEL ---------- */
 
 .cart-panel {
-    position: fixed;
+    position: relative;
 
-    top: 0;
+    top: auto;
+    right: auto;
+    bottom: auto;
 
-    right: 0;
+    width: min(430px, 94vw);
+    height: 100%;
 
-    z-index: 2100;
-
-    width: min(420px, 92vw);
-
-    height: 100vh;
+    margin-left: auto;
 
     display: flex;
-
     flex-direction: column;
 
-    background: #111111;
+    background: #15120f;
+
+    color: #ffffff;
 
     border-left: 1px solid rgba(212, 175, 55, 0.35);
 
     box-shadow:
-        -15px 0 40px rgba(0, 0, 0, 0.45);
+        -18px 0 50px rgba(0, 0, 0, 0.45);
 
     transform: translateX(100%);
 
@@ -1496,56 +1506,54 @@ section {
 }
 
 
-
 /* ---------- CART HEADER ---------- */
 
 .cart-header {
-    min-height: 70px;
-
-    padding: 15px 20px;
-
     display: flex;
 
     align-items: center;
-
     justify-content: space-between;
 
-    border-bottom: 1px solid #292929;
+    padding: 22px 20px 16px;
 
-    background: #151515;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+
+.cart-header .eyebrow {
+    margin-bottom: 4px;
 }
 
 
 .cart-header h2 {
+    margin: 0;
+
     color: #ffffff;
 
-    font-size: 21px;
+    font-size: 1.35rem;
 }
 
 
-
-/* ---------- CART CLOSE BUTTON ---------- */
+/* ---------- CLOSE BUTTON ---------- */
 
 .cart-close {
-    width: 38px;
+    width: 40px;
+    height: 40px;
 
-    height: 38px;
+    display: grid;
+    place-items: center;
 
-    border: 1px solid #444444;
+    border: 1px solid rgba(212, 175, 55, 0.3);
 
     border-radius: 50%;
 
-    background: transparent;
+    background: #211c17;
 
-    color: #ffffff;
+    color: #f4d06f;
 
-    font-size: 22px;
+    cursor: pointer;
 
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
+    font-size: 18px;
 
     transition: 0.25s ease;
 }
@@ -1554,11 +1562,10 @@ section {
 .cart-close:hover {
     background: #d4af37;
 
-    color: #000000;
+    color: #15120f;
 
-    border-color: #d4af37;
+    transform: rotate(90deg);
 }
-
 
 
 /* ---------- CART ITEMS ---------- */
@@ -1568,109 +1575,145 @@ section {
 
     overflow-y: auto;
 
-    padding: 18px;
+    padding: 16px;
 }
 
-
-
-/* ---------- EMPTY CART ---------- */
-
-.empty-cart {
-    padding: 50px 15px;
-
-    text-align: center;
-
-    color: #888888;
-
-    font-size: 15px;
-}
-
-
-
-/* ---------- CART ITEM ---------- */
 
 .cart-item {
     display: flex;
 
-    align-items: flex-start;
+    align-items: center;
 
     justify-content: space-between;
 
-    gap: 15px;
+    gap: 14px;
 
-    padding: 15px 0;
+    padding: 15px;
 
-    border-bottom: 1px solid #292929;
+    margin-bottom: 12px;
+
+    background: #211c17;
+
+    border: 1px solid rgba(255, 255, 255, 0.07);
+
+    border-radius: 14px;
+
+    transition: 0.25s ease;
 }
 
 
-.cart-item h4 {
+.cart-item:hover {
+    border-color: rgba(212, 175, 55, 0.35);
+
+    transform: translateY(-1px);
+}
+
+
+/* ---------- ITEM INFORMATION ---------- */
+
+.cart-item-info {
+    min-width: 0;
+}
+
+
+.cart-item-info h4 {
+    margin: 0 0 5px;
+
     color: #ffffff;
 
-    font-size: 15px;
+    font-size: 1rem;
 
-    margin-bottom: 4px;
+    line-height: 1.3;
 }
 
 
-.cart-item-price {
-    color: #999999;
+.cart-item-info p {
+    margin: 0;
 
-    font-size: 13px;
+    color: #b8afa5;
 
-    margin-bottom: 9px;
+    font-size: 0.85rem;
 }
 
 
-.cart-item strong {
-    color: #d4af37;
+/* ---------- ITEM RIGHT ---------- */
 
-    font-size: 16px;
+.cart-item-right {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-end;
+
+    gap: 9px;
+}
+
+
+.cart-item-total {
+    color: #f4d06f;
+
+    font-size: 1rem;
 
     white-space: nowrap;
 }
 
 
-
 /* ---------- QUANTITY CONTROLS ---------- */
 
-.cart-quantity {
+.cart-controls {
     display: flex;
 
     align-items: center;
 
-    gap: 8px;
+    gap: 7px;
+
+    padding: 4px;
+
+    background: #15120f;
+
+    border: 1px solid rgba(212, 175, 55, 0.2);
+
+    border-radius: 10px;
 }
 
 
-.cart-quantity button {
-    width: 28px;
+.quantity-btn,
+.remove-item {
+    border: 0;
 
-    height: 28px;
+    cursor: pointer;
 
-    border: 1px solid #555555;
+    display: grid;
 
-    border-radius: 6px;
-
-    background: #1d1d1d;
-
-    color: #ffffff;
-
-    font-weight: 800;
+    place-items: center;
 }
 
 
-.cart-quantity button:hover {
+.quantity-btn {
+    width: 30px;
+    height: 30px;
+
+    border-radius: 7px;
+
+    background: #2a241e;
+
+    color: #f4d06f;
+
+    font-size: 19px;
+
+    transition: 0.2s ease;
+}
+
+
+.quantity-btn:hover {
     background: #d4af37;
 
-    color: #000000;
-
-    border-color: #d4af37;
+    color: #15120f;
 }
 
 
-.cart-quantity span {
-    min-width: 20px;
+.quantity-number {
+    min-width: 22px;
 
     text-align: center;
 
@@ -1680,40 +1723,83 @@ section {
 }
 
 
+/* ---------- REMOVE ITEM ---------- */
 
-/* ---------- REMOVE BUTTON ---------- */
+.remove-item {
+    width: 30px;
+    height: 30px;
 
-.cart-remove {
-    margin-top: 7px;
+    margin-left: 3px;
 
-    border: none;
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
 
     background: transparent;
 
+    color: #d7cfc6;
+
+    font-size: 15px;
+
+    transition: 0.2s ease;
+}
+
+
+.remove-item:hover {
+    color: #ff8b8b;
+}
+
+
+/* ---------- EMPTY CART ---------- */
+
+.empty-cart {
+    min-height: 260px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 25px;
+
+    color: #b8afa5;
+}
+
+
+.empty-cart-icon {
+    font-size: 46px;
+
+    margin-bottom: 10px;
+}
+
+
+.empty-cart h3 {
+    margin: 0 0 7px;
+
+    color: #ffffff;
+}
+
+
+.empty-cart p {
+    margin: 0;
+
     color: #999999;
 
-    font-size: 12px;
-
-    text-decoration: underline;
+    font-size: 0.9rem;
 }
 
 
-.cart-remove:hover {
-    color: #d4af37;
-}
-
-
-
-/* =====================================================
-   CART FOOTER
-===================================================== */
+/* ---------- CART FOOTER ---------- */
 
 .cart-footer {
-    padding: 18px;
+    padding: 16px 18px 20px;
 
-    border-top: 1px solid #292929;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
 
-    background: #151515;
+    background: #17130f;
 }
 
 
@@ -1726,114 +1812,54 @@ section {
 
     margin-bottom: 14px;
 
-    color: #ffffff;
-
-    font-size: 18px;
-
-    font-weight: 800;
+    font-size: 1.05rem;
 }
 
 
 .cart-total-row strong {
-    color: #d4af37;
+    color: #f4d06f;
 
-    font-size: 21px;
+    font-size: 1.3rem;
 }
 
 
+/* ---------- ORDER BUTTON ---------- */
 
-/* ---------- WHATSAPP ORDER BUTTON ---------- */
-
-.whatsapp-order-btn {
+.cart-footer .gold-btn {
     width: 100%;
 
-    min-height: 47px;
-
-    border: 1px solid #d4af37;
-
-    border-radius: 25px;
-
-    background: #d4af37;
-
-    color: #000000;
-
-    font-weight: 800;
-
-    transition: 0.25s ease;
+    margin-bottom: 9px;
 }
 
 
-.whatsapp-order-btn:hover {
-    transform: translateY(-2px);
-
-    box-shadow:
-        0 8px 22px rgba(212, 175, 55, 0.22);
-}
-
-
-
-/* ---------- CLEAR CART BUTTON ---------- */
+/* ---------- CLEAR CART ---------- */
 
 .clear-cart-btn {
     width: 100%;
 
-    margin-top: 9px;
+    padding: 11px 14px;
 
-    min-height: 42px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
 
-    border: 1px solid #444444;
-
-    border-radius: 22px;
+    border-radius: 9px;
 
     background: transparent;
 
-    color: #bbbbbb;
+    color: #c8c0b7;
 
-    font-weight: 700;
+    cursor: pointer;
+
+    font-weight: 600;
 
     transition: 0.25s ease;
 }
 
 
 .clear-cart-btn:hover {
-    border-color: #d4af37;
+    border-color: rgba(212, 175, 55, 0.4);
 
-    color: #d4af37;
-}
-
-
-
-/* =====================================================
-   MOBILE CART
-===================================================== */
-
-@media (max-width: 500px) {
-
-    .cart-panel {
-        width: 94vw;
-    }
-
-
-    .cart-header {
-        padding: 13px 16px;
-    }
-
-
-    .cart-items {
-        padding: 15px;
-    }
-
-
-    .cart-footer {
-        padding: 15px;
-    }
-
-
-    .cart-item {
-        gap: 10px;
-    }
-
-  }
+    color: #f4d06f;
+   }
 /* =====================================================
    FLOATING WHATSAPP + FOOTER + RESPONSIVE DESIGN
    STYLE.CSS — PART 8 FINAL
