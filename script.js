@@ -188,8 +188,7 @@ function goToSection(sectionId) {
 
       }
 /* =====================================================
-   SHOPPING CART
-   SCRIPT.JS — PART 3
+   UPGRADED SHOPPING CART
 ===================================================== */
 
 function addToCart(name, price) {
@@ -210,9 +209,19 @@ function addToCart(name, price) {
 
     updateCart();
 
-    alert(name + " added to your cart!");
+    showCartMessage(name + " added to cart!");
 }
 
+
+/* ================= CART MESSAGE ================= */
+
+function showCartMessage(message) {
+
+    alert("🛒 " + message);
+}
+
+
+/* ================= UPDATE CART ================= */
 
 function updateCart() {
 
@@ -226,7 +235,8 @@ function updateCart() {
         document.getElementById("cartTotal");
 
 
-    // Calculate total quantity
+    /* Total quantity */
+
     const totalQuantity = cart.reduce(
         function (total, item) {
             return total + item.quantity;
@@ -235,7 +245,8 @@ function updateCart() {
     );
 
 
-    // Calculate total price
+    /* Total price */
+
     const totalPrice = cart.reduce(
         function (total, item) {
             return total + (item.price * item.quantity);
@@ -244,51 +255,92 @@ function updateCart() {
     );
 
 
-    // Update cart count
+    /* Update cart badge */
+
     if (cartCount) {
         cartCount.textContent = totalQuantity;
     }
 
 
-    // Update cart items
+    /* Empty cart */
+
     if (cartItems) {
 
         if (cart.length === 0) {
 
-            cartItems.innerHTML =
-                '<div class="empty-cart">Your cart is empty.</div>';
+            cartItems.innerHTML = `
+                <div class="empty-cart">
+                    <div class="empty-cart-icon">🛒</div>
+                    <h3>Your cart is empty</h3>
+                    <p>Add some delicious dishes to get started.</p>
+                </div>
+            `;
 
         } else {
 
             cartItems.innerHTML = cart.map(
                 function (item, index) {
 
+                    const itemTotal =
+                        item.price * item.quantity;
+
                     return `
                         <div class="cart-item">
 
                             <div class="cart-item-info">
-                                <h4>${item.name}</h4>
-                                <p>₹${item.price} × ${item.quantity}</p>
+
+                                <h4>
+                                    ${item.name}
+                                </h4>
+
+                                <p>
+                                    ₹${item.price} each
+                                </p>
+
                             </div>
 
-                            <div class="cart-controls">
 
-                                <button onclick="decreaseQuantity(${index})">
-                                    −
-                                </button>
+                            <div class="cart-item-right">
 
-                                <span>${item.quantity}</span>
+                                <strong class="cart-item-total">
+                                    ₹${itemTotal}
+                                </strong>
 
-                                <button onclick="increaseQuantity(${index})">
-                                    +
-                                </button>
 
-                                <button
-                                    class="remove-item"
-                                    onclick="removeFromCart(${index})"
-                                >
-                                    ✕
-                                </button>
+                                <div class="cart-controls">
+
+                                    <button
+                                        class="quantity-btn"
+                                        onclick="decreaseQuantity(${index})"
+                                        aria-label="Decrease quantity"
+                                    >
+                                        −
+                                    </button>
+
+
+                                    <span class="quantity-number">
+                                        ${item.quantity}
+                                    </span>
+
+
+                                    <button
+                                        class="quantity-btn"
+                                        onclick="increaseQuantity(${index})"
+                                        aria-label="Increase quantity"
+                                    >
+                                        +
+                                    </button>
+
+
+                                    <button
+                                        class="remove-item"
+                                        onclick="removeFromCart(${index})"
+                                        aria-label="Remove item"
+                                    >
+                                        🗑️
+                                    </button>
+
+                                </div>
 
                             </div>
 
@@ -300,57 +352,66 @@ function updateCart() {
     }
 
 
-    // Update total
+    /* Update total */
+
     if (cartTotal) {
-        cartTotal.textContent = "₹" + totalPrice;
+
+        cartTotal.textContent =
+            "₹" + totalPrice;
     }
 }
 
 
-/* Increase quantity */
+/* ================= INCREASE ================= */
 
 function increaseQuantity(index) {
 
-    if (cart[index]) {
-
-        cart[index].quantity += 1;
-
-        updateCart();
+    if (!cart[index]) {
+        return;
     }
+
+    cart[index].quantity += 1;
+
+    updateCart();
 }
 
 
-/* Decrease quantity */
+/* ================= DECREASE ================= */
 
 function decreaseQuantity(index) {
 
-    if (cart[index]) {
+    if (!cart[index]) {
+        return;
+    }
+
+    if (cart[index].quantity > 1) {
 
         cart[index].quantity -= 1;
 
-        if (cart[index].quantity <= 0) {
-            cart.splice(index, 1);
-        }
+    } else {
 
-        updateCart();
+        cart.splice(index, 1);
     }
+
+    updateCart();
 }
 
 
-/* Remove item */
+/* ================= REMOVE ================= */
 
 function removeFromCart(index) {
 
-    if (cart[index]) {
-
-        cart.splice(index, 1);
-
-        updateCart();
+    if (!cart[index]) {
+        return;
     }
+
+    cart.splice(index, 1);
+
+    updateCart();
 }
 
 
-/* Clear entire cart */
+/* ================= CLEAR CART ================= */
 
 function clearCart() {
 
@@ -358,10 +419,17 @@ function clearCart() {
         return;
     }
 
+    const confirmClear =
+        confirm("Are you sure you want to clear your cart?");
+
+    if (!confirmClear) {
+        return;
+    }
+
     cart = [];
 
     updateCart();
-      }
+}
 /* =====================================================
    CART OPEN / CLOSE
    SCRIPT.JS — PART 4
